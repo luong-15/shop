@@ -1,0 +1,370 @@
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+/* * {
+    border: 1px solid black;
+} */
+
+body {
+    width: auto;
+    height: auto;
+    background-color: white;
+}
+
+h6 {
+    display: none;
+}
+
+marquee {
+    position: relative;
+    height: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    position: relative;
+    height: 20%;
+    border-bottom: 0.2px solid #777;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    /* background: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%); */
+    /* background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%); */
+}
+
+.logo {
+    position: relative;
+    width: auto;
+    height: 10%;
+    color: black;
+    font-size: 45px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+}
+
+.menu-header {
+    display: flex;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-btn {
+    position: relative;
+    width: 70px;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu-btn:nth-child(2) {
+    width: 110px;
+}
+
+.menu-btn:hover {
+    background-color: black;
+    color: white;
+    transition: ease-out 0.3s;
+}
+
+.menu-header li {
+    position: relative;
+    width: 60px;
+    list-style: none;
+    z-index: 1;
+}
+
+.menu-header a {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 500;
+}
+
+.icon {
+    position: relative;
+    display: block;
+    color: #777;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+a:hover .icon {
+    color: black;
+    transition: ease-out 0.5s;
+}
+
+.input {
+    width: 100%;
+    max-width: 400px;
+    height: 45px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+  }
+  
+.input:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+}
+  
+.input:active {
+    transform: scale(0.95);
+}
+  
+.input:focus {
+    border: 2px solid grey;
+}
+
+.home-page {
+    display: flex;
+    position: relative;
+    height: 80%;
+    border-bottom: 1px solid black;
+}
+
+.menu-home {
+    position: relative;
+    display: grid;
+    width: 12%;
+    height: 350px;
+    text-align: center;
+    margin:  0px 0px 0px 10px;
+    border-right: 1px solid black;
+}
+
+.menu-home .container {
+    list-style: none;
+    height: 35px;
+    width: 150px;
+    margin-top: 15px;
+    padding: 3px 28px 3px 0px;
+    border-radius: 20px;
+}
+
+.menu-home button {
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3em;
+    background-color: white;
+    font-weight: bold;
+    text-decoration: none;
+    height: 35px;
+    border-radius: 30px;
+    padding: 0px 20px 0px 20px;
+    border: none;
+}
+
+.menu-home button:hover {
+    background-color: black;
+    color: white;
+    transition: ease-in 0.1s;
+}
+
+.swiper {
+    width: 70%;
+    height: 100%;
+    margin-top: 15px;
+    background-color: #262b32;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    object-position: 35% 65%;
+    opacity: 0.4;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    display: flex;
+    flex-direction: column;
+    transform: rotateZ(-90deg);
+    margin-left: 2rem;
+}
+
+.swiper .swiper-button-next {
+    transform: rotateZ(90deg);
+    margin-right: 2rem; 
+}
+
+.swiper .swiper-button-prev::after,
+.swiper .swiper-button-next::after {
+    content: "";
+}
+
+.swiper .swiper-button-prev i,
+.swiper .swiper-button-next i {
+    font-size: 5rem;
+    -webkit-text-stroke: 0.1rem #fff;
+    color:transparent;
+    opacity: 0.7;
+}
+
+.swiper .swiper-button-prev span,
+.swiper .swiper-button-next span {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: -1.5rem;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.product-show {
+    display: flex;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 430px;
+    border-radius: 10px;
+    margin: 0px 30px 40px 30px;
+    padding-top: 4px;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px black;
+    transition: all ease-out 0.3s;
+}
+
+.product-card img {
+    position: relative;
+    width: 260px;
+    height: 270px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    width: 295px;
+    cursor: context-menu;
+    position: relative;
+    text-transform: uppercase;
+    margin: 15px 6px 10px 6px;
+    font-family: "Open Sans", sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card p {
+    position: relative;
+    cursor: context-menu;
+    margin: 15px 0 15px 0;
+    font-size: 18px;
+}
+
+.product-card button {
+    cursor: pointer;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    background: none;
+    font-size: 16px;
+    transition: ease-in-out 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card button:hover {
+    background-color: black;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.show-popup {
+	position: fixed;
+	top: 26%;
+	right: 22%;
+	width: 800px;
+    height: 360px;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0.5em black;
+}
+
+.show-popup img {
+    position: relative;
+    border-radius: 10px;
+    width: 800px;
+    height: 360px; 
+}
+
+.show-popup button {
+    position: absolute;
+    cursor: pointer;
+    font-size: 45px;
+    font-family: 'Poppins';
+    padding-left: 12px;
+    border: none;
+    background: none;
+    color: rgba(243, 236, 236, 0.899);
+}
+
+.show-popup button:active {
+    transform: scale(.9);
+    transition: 0.3s ease-in-out opacity(0.2),
+                0.3s ease-in-out transform;
+}
+
+.show-cart {
+    /* display: none; */
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+.cart-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .cart-total {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  #cart-total {
+    font-weight: bold;
+  }
+  
