@@ -108,22 +108,6 @@ document.getElementById("btn-accessory").onclick = function () {
      });
 };
 
-var toggleButton = document.getElementById('show_cart');
-var element1 = document.getElementsByClassName('home-page');
-var element2 = document.getElementsByClassName('show-cart');
-
-toggleButton.addEventListener('click', function() {
-  if (element1.style.display === 'block') {
-    element1.style.display = 'none';
-    element2.style.display = 'block';
-  } else {
-    element1.style.display = 'block';
-    element2.style.display = 'none';
-  }
-});
-
-// Sample JavaScript code to manage cart items (replace with your actual cart data and logic)
-
 let cartItems = []; // Array to store cart items
 
 // Add event listener to all "Add to Cart" buttons
@@ -132,7 +116,7 @@ addToCartBtns.forEach(btn => {
   btn.addEventListener('click', function() {
     let productId = parseInt(this.dataset.productId);
     let productName = this.dataset.productName;
-    let productPrice = this.dataset.productPrice.replace(/,/g, '');
+    let productPrice = parseFloat(this.dataset.productPrice.replace(/\./g, ''));
     let quantity = 1; // Default quantity
 
     addToCart(productId, productName, productPrice, quantity);
@@ -153,12 +137,13 @@ function addToCart(productId, productName, price, quantity) {
       id: productId,
       name: productName,
       price: price,
-      quantity: quantity
+      quantity: quantity,
     });
   }
 
   // Update cart display
   updateCartDisplay();
+  showSuccessNotification(productName);
 }
 
 
@@ -171,8 +156,7 @@ function updateCartDisplay() {
   // Calculate and display total
   let cartTotal = 0;
   cartItems.forEach(item => { 
-    let parsedPrice = parseFloat(item.price); 
-    let subtotal = parsedPrice * item.quantity;
+    let subtotal = item.price * item.quantity;
     cartTotal += subtotal;
 
     // Create table row for each cart item
@@ -184,7 +168,7 @@ function updateCartDisplay() {
     let cellRemove = row.insertCell();
 
     cellProduct.textContent = item.name;
-    cellPrice.textContent = `${item.price}₫`;
+    cellPrice.textContent = `${formatNumber(item.price)}₫`;
 
     // Quantity input field and buttons
     let quantityInput = document.createElement('input');
@@ -198,14 +182,58 @@ function updateCartDisplay() {
     cellQuantity.appendChild(quantityInput);
 
     // Update subtotal and total
-    cellSubtotal.textContent = `${subtotal.toFixed(6)}₫`;
-    // cellSubtotal.textContent = productPrice(subtotal);
+    cellSubtotal.textContent = `${formatNumber(subtotal)}₫`;
 
     // Remove button
-    cellRemove.innerHTML = '<a href="#" onclick="removeFromCart(' + item.id + ')">Remove</a>';
+    cellRemove.innerHTML = '<a href="#" onclick="removeFromCart(' + item.id + ' , \'' + item.name + '\')">Remove</a>';
   });
 
-  document.getElementById('cart-total').textContent = `${cartTotal.toFixed(6)}₫ `;
+  document.getElementById('cart-total').textContent = `${formatNumber(cartTotal)}₫ `;
+}
+
+// Function to format a number with commas
+function formatNumber(number) {
+  // Convert number to a string
+  let numberString = number.toFixed(0);
+
+  // Split the number into an array of digits
+  let digits = numberString.split('');
+
+  // Reverse the array to process from right to left
+  digits.reverse();
+
+  // Add commas every 3 digits
+  for (let i = 3; i < digits.length; i += 4) {
+    digits.splice(i, 0, '.');
+  }
+
+  // Join the array back into a string
+  let formattedNumberString = digits.join('');
+
+  // Reverse the string back to original order
+  formattedNumberString = formattedNumberString.split('').reverse().join('');
+
+  return formattedNumberString;
+}
+
+// Function to show a success notification (customizable)
+function showSuccessNotification(productName) {
+  let notificationElement = document.createElement('div');
+  notificationElement.classList.add('success-notification'); // Add CSS class for styling
+  notificationElement.textContent = `"${productName}" added to cart!`;
+
+  // Append notification to a specific container (customize based on your HTML structure)
+  let notificationContainer = document.getElementById('notification-container');
+  if (notificationContainer) {
+    notificationContainer.appendChild(notificationElement);
+
+    // Add a timeout to automatically remove the notification (optional)
+    setTimeout(() => {
+      notificationElement.remove();
+    }, 2000); // (milliseconds)
+  } else {
+    console.warn('Notification container not found. Please add an element with ID "notification-container" to your HTML.');
+  }
 }
 
 // Function to update quantity of an item
@@ -221,7 +249,38 @@ function updateQuantity(productId, newQuantity) {
 }
 
 // Function to remove an item from the cart
-function removeFromCart(productId) {
-  cartItems = cartItems.filter(item => item.id !== productId);
-  updateCartDisplay();
+function removeFromCart(productId, productName) {
+  // Find the index of the item to remove
+  let itemIndex = cartItems.findIndex(item => item.id === productId && item.name === productName);
+
+  if (itemIndex !== -1) {
+    // Remove the item from the cart array
+    cartItems.splice(itemIndex, 1);
+
+    // Update order numbers for remaining items
+    for (let i = itemIndex; i < cartItems.length; i++) {
+      cartItems[i].order--;
+    }
+
+    // Update cart display
+    updateCartDisplay();
+  }
+}
+
+function toggleElements() {
+  const elements1 = document.querySelectorAll('.show-cart');
+  const elements2 = document.querySelectorAll('.home-page');
+  const elements3 = document.querySelectorAll('.product-show');
+
+  elements1.forEach(element => {
+    element.style.display = 'block';
+  });
+
+  elements2.forEach(element => {
+    element.style.display = 'none';
+  });
+
+  elements3.forEach(element => {
+    element.style.display = 'none';
+  });
 }

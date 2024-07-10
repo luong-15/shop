@@ -299,6 +299,7 @@ a:hover .icon {
 }
 
 .show-popup {
+    display: none;
 	position: fixed;
 	top: 26%;
 	right: 22%;
@@ -334,7 +335,7 @@ a:hover .icon {
 }
 
 .show-cart {
-    /* display: none; */
+    display: none;
     position: relative;
     height: auto;
     width: 100%;
@@ -345,26 +346,37 @@ a:hover .icon {
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-  }
+}
   
-  .cart-table {
+.cart-table {
     width: 100%;
     border-collapse: collapse;
-  }
+}
   
-  .cart-table th,
-  .cart-table td {
+.cart-table th,
+.cart-table td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ccc;
-  }
+}
   
-  .cart-total {
+.cart-total {
     text-align: right;
     margin-top: 20px;
-  }
+}
   
-  #cart-total {
+#cart-total {
     font-weight: bold;
-  }
-  
+}
+
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    z-index: 100; 
+    transition: opacity 0.5s ease-in-out; 
+}

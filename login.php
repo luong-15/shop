@@ -17,10 +17,11 @@ $username = stripslashes($_REQUEST['username']);
 $username = mysqli_real_escape_string($conn,$username);
 $password = stripslashes($_REQUEST['password']);
 $password = mysqli_real_escape_string($conn,$password);
-$query = "SELECT * FROM shop.user WHERE username='$username' and password='$password'";
+$query = "SELECT iduser, username, password FROM shop.user WHERE username ='$username' and password ='$password'";
 $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 $rows = mysqli_num_rows($result);
   if($rows > 0){
+$_SESSION['iduser'] = $iduser;
 $_SESSION['username'] = $username;
 header("Location: index.php");
 exit();

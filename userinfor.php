@@ -12,6 +12,7 @@
 require("./conect.php");
 if (!session_start()) {
     header("Location: login.php");
+    header("Location: index.php");
     exit;
   }
 
@@ -24,13 +25,15 @@ if (!session_start()) {
     color: gray;">'.$_SESSION['username'].'</i></span></a> ';
 
 $username = $_SESSION['username'];
-$sqlUserInfo = "SELECT username FROM shop.user WHERE username='$username'";
+$iduser = $_SESSION['iduser'];
+$sqlUserInfo = "SELECT iduser, username FROM shop.user WHERE username='$username'";
 $resultUserInfo = $conn->query($sqlUserInfo);
 
 if ($resultUserInfo->num_rows > 0) {
   $rowUserInfo = $resultUserInfo->fetch_assoc();
   $username = $rowUserInfo["username"];
-  echo "Welcome, $username!";
+  $iduser = $rowUserInfo["iduser"];
+  echo "Welcome,$iduser, $username!";
 } else {
   echo "User information not found.";
 }

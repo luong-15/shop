@@ -46,12 +46,7 @@ if (isset($_REQUEST['username'])){
         <a href="./login.php" type="submit">Login</a>
       </div>
     </div>
-<!-- <div class="form">
-<h1>Registration</h1>
-<input type="text" name="username" placeholder="Username" required />
-<input type="password" name="password" placeholder="Password" required />
-<input type="submit" name="submit" value="Register" />
-</div> -->
+
 </form>
 <?php } ?>
 
