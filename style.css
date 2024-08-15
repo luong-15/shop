@@ -116,17 +116,17 @@ a:hover .icon {
     outline: none;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0px 0px 20px -18px;
-  }
-  
+}
+
 .input:hover {
     border: 2px solid lightgrey;
     box-shadow: 0px 0px 20px -17px;
 }
-  
+
 .input:active {
     transform: scale(0.95);
 }
-  
+
 .input:focus {
     border: 2px solid grey;
 }
@@ -144,7 +144,7 @@ a:hover .icon {
     width: 12%;
     height: 350px;
     text-align: center;
-    margin:  0px 0px 0px 10px;
+    margin: 0px 0px 0px 10px;
     border-right: 1px solid black;
 }
 
@@ -201,7 +201,7 @@ a:hover .icon {
 
 .swiper .swiper-button-next {
     transform: rotateZ(90deg);
-    margin-right: 2rem; 
+    margin-right: 2rem;
 }
 
 .swiper .swiper-button-prev::after,
@@ -213,7 +213,7 @@ a:hover .icon {
 .swiper .swiper-button-next i {
     font-size: 5rem;
     -webkit-text-stroke: 0.1rem #fff;
-    color:transparent;
+    color: transparent;
     opacity: 0.7;
 }
 
@@ -300,10 +300,10 @@ a:hover .icon {
 
 .show-popup {
     display: none;
-	position: fixed;
-	top: 26%;
-	right: 22%;
-	width: 800px;
+    position: fixed;
+    top: 26%;
+    right: 22%;
+    width: 800px;
     height: 360px;
     z-index: 1000;
     border-radius: 10px;
@@ -314,7 +314,7 @@ a:hover .icon {
     position: relative;
     border-radius: 10px;
     width: 800px;
-    height: 360px; 
+    height: 360px;
 }
 
 .show-popup button {
@@ -331,7 +331,7 @@ a:hover .icon {
 .show-popup button:active {
     transform: scale(.9);
     transition: 0.3s ease-in-out opacity(0.2),
-                0.3s ease-in-out transform;
+        0.3s ease-in-out transform;
 }
 
 .show-cart {
@@ -347,24 +347,24 @@ a:hover .icon {
     padding: 20px;
     border: 1px solid #ccc;
 }
-  
+
 .cart-table {
     width: 100%;
     border-collapse: collapse;
 }
-  
+
 .cart-table th,
 .cart-table td {
     padding: 8px;
     text-align: left;
     border: 1px solid #ccc;
 }
-  
+
 .cart-total {
     text-align: right;
     margin-top: 20px;
 }
-  
+
 #cart-total {
     font-weight: bold;
 }
@@ -373,10 +373,9 @@ a:hover .icon {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 10px;
     background-color: #fff;
     border: none;
     border-radius: 5px;
-    z-index: 100; 
-    transition: opacity 0.5s ease-in-out; 
+    z-index: 100;
+    transition: opacity 0.5s ease-in-out;
 }
